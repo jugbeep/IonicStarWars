@@ -7,11 +7,38 @@
 <ion-content padding>
   <h2>Welcome to Ionic!</h2>
   <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
+    Ionic / Star Wars
   </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<section>
+
+  <h2>Search for Character</h2>
+  Searching for: {{name}}
+  <input  [(ngModel)]='name' type="text" placeholder="Character Name">
+  <input (click)="findCharacter(name)" type="submit" value="Search">
+</section>
+
+<section *ngIf="results">
+    <h2>Search Results</h2>
+    <ul>
+        <li *ngFor="let character of results">
+            <h3>{{character.name}}</h3>
+            <dl>
+                <dt>Birth Year</dt>
+                <dd>{{character.birth_year}}</dd>
+                <dt>Eye Color</dt>
+                <dd>{{character.eye_color}}</dd>
+                <dt>Hair Color</dt>
+                <dd>{{character.hair_color}}</dd>
+                <dt>Gender</dt>
+                <dd>{{character.gender}}</dd>
+                <dt>Height</dt>
+                <dd>{{character.height}}</dd>
+                <dt>Mass</dt>
+                <dd>{{character.mass}}</dd>
+                <dt>Skin Color</dt>
+                <dd>{{character.url}}</dd>
+            </dl>
+        </li>
+    </ul>
+</section>
 </ion-content>
